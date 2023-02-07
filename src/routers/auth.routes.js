@@ -7,8 +7,8 @@ const AuthRoutes = express.Router();
 AuthRoutes.route('/user')
     .post(storeUserSecrets);
 
-//AuthRoutes.route('/login')
-//    .get(loginUser);
+AuthRoutes.route('/login')
+    .get(loginUser);
 
 //AuthRoutes.route('/token/validate')
  //   .get(validateToken);

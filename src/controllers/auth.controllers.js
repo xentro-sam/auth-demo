@@ -12,6 +12,14 @@ const storeUserSecrets = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
+    const { username, password } = req.body;
+    try {
+        const token = await AuthServices.loginUser(username, password);
+        return res.status(200).json(token);
+    }
+    catch (err) {
+        return res.status(500).json(err);
+    }
 };
 
 module.exports = {
