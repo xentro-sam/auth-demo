@@ -22,7 +22,19 @@ const loginUser = async (req, res) => {
     }
 };
 
+const validateToken = async (req, res) => {
+    const { token } = req.body;
+    try {
+        const isValid = await AuthServices.validateToken(token);
+        return res.status(200).json(isValid);
+    }
+    catch (err) {
+        return res.status(500).json(err);
+    }
+};
+
 module.exports = {
     storeUserSecrets,
-    loginUser
+    loginUser,
+    validateToken
 };

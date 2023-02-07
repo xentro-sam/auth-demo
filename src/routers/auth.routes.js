@@ -1,6 +1,5 @@
 const express = require('express');
-const { storeUserSecrets, loginUser } = require('../controllers/auth.controllers');
-//const { validateToken } = require('../middlewares/auth.middleware');
+const { storeUserSecrets, loginUser, validateToken } = require('../controllers/auth.controllers');
 
 const AuthRoutes = express.Router();
 
@@ -10,7 +9,7 @@ AuthRoutes.route('/user')
 AuthRoutes.route('/login')
     .get(loginUser);
 
-//AuthRoutes.route('/token/validate')
- //   .get(validateToken);
+AuthRoutes.route('/token/validate')
+    .get(validateToken);
 
 module.exports = AuthRoutes;

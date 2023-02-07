@@ -1,6 +1,6 @@
 const db = require('../models');
 const { getHash, verifyHash } = require('../utils/hash');
-const { sign } = require('../utils/jwt');
+const { sign, verify } = require('../utils/jwt');
 
 const storeUserSecrets = async (username, password) => {
     const hash = getHash(password);
@@ -21,7 +21,16 @@ const loginUser = async (username, password) => {
     return token;
 };
 
+const validateToken = async (token) => {
+    const isValid = await verify(token);
+    if(!isValid) {
+        throw new Error({message: 'Invalid token'});
+    }
+    return {message: 'Valid token'};
+};
+
 module.exports = {
     storeUserSecrets,
-    loginUser
+    loginUser,
+    validateToken
 };
