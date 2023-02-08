@@ -22,7 +22,7 @@ const loginUser = async (username, password) => {
 };
 
 const validateToken = async (token) => {
-    const isValid = await verify(token);
+    const isValid = verify(token);
     if(!isValid) {
         throw new Error({message: 'Invalid token'});
     }

@@ -10,6 +10,6 @@ AuthRoutes.route('/login')
     .get(loginUser);
 
 AuthRoutes.route('/token/validate')
-    .get(validateToken);
+    .post(validateToken);
 
 module.exports = AuthRoutes;

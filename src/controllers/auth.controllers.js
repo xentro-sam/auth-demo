@@ -23,7 +23,7 @@ const loginUser = async (req, res) => {
 };
 
 const validateToken = async (req, res) => {
-    const { token } = req.body;
+    const token = req.headers.authorization;
     try {
         const isValid = await AuthServices.validateToken(token);
         return res.status(200).json(isValid);
