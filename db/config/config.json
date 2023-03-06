@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": null,
     "database": "shivam_agarwal",
-    "host": "127.0.0.1",
+    "host": "docker.for.mac.localhost",
     "dialect": "postgres",
     "port": 5432
   }

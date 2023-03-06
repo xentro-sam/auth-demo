@@ -1,5 +1,12 @@
 const redis = require('redis');
-const client = redis.createClient();
+
+const config = {
+    socket: {
+        host: "docker.for.mac.localhost",
+        port: 6379
+    }
+}
+const client = redis.createClient(config);
 
 const redisSetup = async () => { 
     client.on('error', (err) => {
