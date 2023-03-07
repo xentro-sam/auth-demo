@@ -6,5 +6,13 @@
     "host": "docker.for.mac.localhost",
     "dialect": "postgres",
     "port": 5432
+  },
+  "docker": {
+    "username": "user",
+    "password": "password",
+    "database": "db",
+    "host": "db",
+    "dialect": "postgres",
+    "port": 5432
   }
 }
