@@ -1,5 +1,5 @@
 const express = require('express');
-const { storeUserSecrets, loginUser, validateToken } = require('../controllers/auth.controllers');
+const {storeUserSecrets, loginUser, validateToken} = require('../controllers/auth.controllers');
 
 const AuthRoutes = express.Router();
 
@@ -7,9 +7,9 @@ AuthRoutes.route('/user')
     .post(storeUserSecrets);
 
 AuthRoutes.route('/login')
-    .get(loginUser);
+    .post(loginUser);
 
 AuthRoutes.route('/token/validate')
-    .get(validateToken);
+    .post(validateToken);
 
 module.exports = AuthRoutes;
