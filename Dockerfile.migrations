@@ -1,4 +1,4 @@
- FROM alpine:latest
+FROM alpine:latest
 
 # Install node and npm in alpine
 RUN apk add --update nodejs npm
@@ -14,8 +14,6 @@ COPY . /app
 
 # Install dependencies
 RUN cd /app && npm install
-
-ENV NODE_ENV=docker
 
 #Run the app
 ENTRYPOINT ["npm", "run", "docker:migrate"]
