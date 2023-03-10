@@ -3,9 +3,9 @@ const {setToken, getToken} = require('../utils/redis.utils');
 const CustomError = require('../utils/customError.utils');
 
 const storeUserSecrets = async (req, res) => {
-  const {username, password} = req.body;
+  const {email, password} = req.body;
   try {
-    const user = await AuthServices.storeUserSecrets(username, password);
+    const user = await AuthServices.storeUserSecrets(email, password);
     return res.status(201).json(user);
   } catch (err) {
     if (err instanceof CustomError) {
@@ -16,9 +16,9 @@ const storeUserSecrets = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-  const {username, password} = req.body;
+  const {email, password} = req.body;
   try {
-    const token = await AuthServices.loginUser(username, password);
+    const token = await AuthServices.loginUser(email, password);
     await setToken(token, 'token', 3600);
     return res.status(200).json({message: 'Login successful', token});
   } catch (err) {
